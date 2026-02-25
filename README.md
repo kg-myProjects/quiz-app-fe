@@ -1,6 +1,9 @@
 # Quiz App Frontend
 This is the frontend of the Mini-Quiz application built with React and Node.js.
-## Setup & Run
+
+Backend: [Quiz App Backend](https://github.com/kg-myProjects/quiz-app-be)
+
+## Setup & Run:
 1. **Clone the repository**  
    In the root of the project, run:
    ```bash
@@ -11,7 +14,7 @@ This is the frontend of the Mini-Quiz application built with React and Node.js.
    ```bash
    npm install
    ```
-3. Start the frontend
+3. Start the frontend:
    ```bash
    npm run dev
    ```
