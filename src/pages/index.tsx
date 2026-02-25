@@ -34,17 +34,25 @@ export default function Home() {
         );
 
     return (
-        <div className="p-8 max-w-xl mx-auto">
-            <h1 className="text-2xl font-bold mb-6">Welcome to Quiz</h1>
-            <h1 className="text-2xl font-bold mb-6">Categories</h1>
+        <div className="p-8 w-full">
+            <h1 className="text-3xl font-bold mb-20 text-center">Welcome to Quiz</h1>
+            <div className="flex gap-8 justify-center">
+                <div className="w-[35%]">
+                    <h1 className="text-2xl font-bold mb-6">Categories:</h1>
+                    {categories.map((cat) => (
+                        <CategoryCard key={cat.id} category={cat} onStart={goToNextQuestion}/>
+                    ))}
+                </div>
 
-            {categories.map((cat) => (
-                <CategoryCard key={cat.id} category={cat} onStart={goToNextQuestion}/>
-            ))}
-
-            {currentQuestion && (
-                <QuestionCard question={currentQuestion} onSelectAnswer={handleSelectAnswer} onEndQuiz={handleEndQuiz}/>
-            )}
+                <div className="flex w-[35%] items-center justify-center" >
+                    <div className="flex-1">
+                        {currentQuestion && (
+                            <QuestionCard question={currentQuestion} onSelectAnswer={handleSelectAnswer}
+                                          onEndQuiz={handleEndQuiz}/>
+                        )}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
