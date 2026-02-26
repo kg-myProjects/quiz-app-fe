@@ -12,10 +12,6 @@ const CategoryCard: React.FC<CategoryCardProps> = ({category, onStart}) => {
         : 0;
 
     const handleClick = () => {
-        if (category.totalQuestions === category.correctAnswers) {
-            alert("No more questions available in this category.");
-            return;
-        }
         onStart(category.id);
     };
 

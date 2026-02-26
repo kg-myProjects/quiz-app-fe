@@ -2,17 +2,20 @@ import {useEffect} from "react";
 import CategoryCard from "@/components/CategoryCard";
 import QuestionCard from "@/components/QuestionCard";
 import {useQuiz} from "@/customHooks/useQuiz";
+import MessageContainer from "@/components/MessageContainer";
 
 export default function Home() {
     const {
         categories,
-        loading,
-        error,
         currentQuestion,
         loadCategories,
-        goToNextQuestion,
+        loading,
+        error,
+        answerMessage,
+        infoMessage,
+        startQuiz,
         handleSelectAnswer,
-        handleEndQuiz
+        endQuiz
     } = useQuiz();
 
     useEffect(() => {
@@ -34,25 +37,38 @@ export default function Home() {
         );
 
     return (
-        <div className="p-8 w-full">
-            <h1 className="text-3xl font-bold mb-20 text-center">Welcome to Quiz</h1>
-            <div className="flex gap-8 justify-center">
-                <div className="w-[35%]">
-                    <h1 className="text-2xl font-bold mb-6">Categories:</h1>
-                    {categories.map((cat) => (
-                        <CategoryCard key={cat.id} category={cat} onStart={goToNextQuestion}/>
-                    ))}
-                </div>
+        <>
+            <header className="flex flex-col justify-center">
+                <h1 className="text-3xl font-bold text-center my-10">Welcome to Quiz</h1>
+                <section className="flex flex-col items-center">
+                    <div className="h-[50px] w-[400px]">
+                        <MessageContainer message={answerMessage}/>
+                    </div>
+                    <div className="h-[50px] w-[400px] mt-1">
+                        <MessageContainer message={infoMessage}/>
+                    </div>
+                </section>
+            </header>
 
-                <div className="flex w-[35%] items-center justify-center" >
+            <main className="p-8 w-full flex justify-center gap-8">
+                <section className="w-[35%]">
+                    <h2 className="text-2xl font-bold mb-6">Categories:</h2>
+                    {categories.map(cat => (
+                        <CategoryCard key={cat.id} category={cat} onStart={startQuiz}/>
+                    ))}
+                </section>
+                <section className="flex w-[35%] items-center justify-center">
                     <div className="flex-1">
                         {currentQuestion && (
-                            <QuestionCard question={currentQuestion} onSelectAnswer={handleSelectAnswer}
-                                          onEndQuiz={handleEndQuiz}/>
+                            <QuestionCard
+                                question={currentQuestion}
+                                onSelectAnswer={handleSelectAnswer}
+                                onEndQuiz={endQuiz}
+                            />
                         )}
                     </div>
-                </div>
-            </div>
-        </div>
+                </section>
+            </main>
+        </>
     );
 }
