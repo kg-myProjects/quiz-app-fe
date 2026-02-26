@@ -7,7 +7,6 @@ Backend: [Quiz App Backend](https://github.com/kg-myProjects/quiz-app-be)
 1. Clone the repository. In the root of the project, run:
    ```bash
    git clone https://github.com/kg-myProjects/quiz-app-fe.git
-   cd quiz-app-fe
    ```
    ```bash
    cd quiz-app-fe
