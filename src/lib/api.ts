@@ -6,11 +6,20 @@ export const fetchCategories = async (): Promise<Category[]> => {
     return response.data;
 };
 
-export const fetchNextQuestion = async (categoryId: string, currentQuestionId?: string): Promise<Question> => {
+export const fetchNextQuestion = async (
+    categoryId: string,
+    currentQuestionId?: string
+): Promise<Question | null> => {
+
     const response = await axiosInstance.get<Question>(`/categories/${categoryId}/next-question`,
         {
             params: {currentQuestionId}
         });
+
+    if (response.status === 204 || !response.data) {
+        return null;
+    }
+
     return response.data;
 };
 
