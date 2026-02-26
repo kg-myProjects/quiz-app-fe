@@ -9,6 +9,9 @@ Backend: [Quiz App Backend](https://github.com/kg-myProjects/quiz-app-be)
    git clone https://github.com/kg-myProjects/quiz-app-fe.git
    cd quiz-app-fe
    ```
+   ```bash
+   cd quiz-app-fe
+   ```
 2. Install dependencies:
    ```bash
    npm install
