@@ -1,7 +1,7 @@
 # Quiz App Frontend
-This is the frontend of the Mini-Quiz application built with React and Node.js.
+This is the frontend of the Mini-Quiz application built with React and Next.js.
 
-Backend: [Quiz App Backend](https://github.com/kg-myProjects/quiz-app-be)
+Backend: [Quiz App Backend](https://github.com/kg-myProjects/quiz-app-be).
 
 ## Setup & Run:
 1. Clone the repository. In the root of the project, run:
@@ -19,4 +19,4 @@ Backend: [Quiz App Backend](https://github.com/kg-myProjects/quiz-app-be)
    ```bash
    npm run dev
    ```
-   **The frontend will run at http://localhost:3000 by default**
+   **The frontend will run at http://localhost:3000 by default.**
